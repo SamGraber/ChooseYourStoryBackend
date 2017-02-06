@@ -2,7 +2,8 @@
   "name": "chooseyourstory",
   "version": "1.0.0",
   "scripts": {
-    "server": "ts-node server"
+    "server": "ts-node server",
+	"start": "npm run server"
   },
   "license": "ISC",
   "dependencies": {

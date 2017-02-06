@@ -3,13 +3,13 @@ import * as bodyParser from 'koa-bodyparser';
 import * as serve from 'koa-static';
 import * as cors from 'koa-cors';
 import { router } from './api';
-// import { authenticate } from './api/login';
+import { authenticate } from './api/login';
 
 export const app = new Koa();
 const port = process.env.npm_package_config_port || 3000;
 
 app.use(errorHandler());
-// app.use(authenticate());
+app.use(authenticate());
    
 app.use(serve(__dirname));
 
