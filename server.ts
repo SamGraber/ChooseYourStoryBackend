@@ -9,12 +9,12 @@ export const app = new Koa();
 const port = process.env.npm_package_config_port || 3000;
 
 app.use(errorHandler());
+app.use(cors());
 app.use(authenticate());
    
 app.use(serve(__dirname));
 
 app.use(bodyParser());
-app.use(cors());
 
 app.use(router.routes())
    .use(router.allowedMethods());
