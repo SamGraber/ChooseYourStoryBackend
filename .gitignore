@@ -1,0 +1,8 @@
+# NPM packages
+/node_modules/
+
+# Editor settings
+/.vscode/
+
+# secret keys
+/config/keys.*
