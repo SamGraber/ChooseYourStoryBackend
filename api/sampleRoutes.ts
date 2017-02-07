@@ -8,6 +8,6 @@ export function configureSampleRoutes(router: Router) {
 		console.log(context.request.body);
 		context.body = 'Nice!';
 	});
-	router.get('*', context => context.body = 'Hello World');
+	// router.get('*', context => context.body = 'Hello World');
 	return router;
 }
