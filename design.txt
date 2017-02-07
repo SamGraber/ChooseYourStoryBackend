@@ -1,0 +1,8 @@
+Entitites
+User
+Friends: User[]
+Stories: Story[]
+
+Story:
+Branches: Story[]
+Author(s): User | User[]
