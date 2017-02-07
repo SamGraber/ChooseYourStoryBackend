@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import { sign, verify } from 'jsonwebtoken';
-import { key } from '../config/keys';
+import { key } from '../config';
 
 export function configureLogin(router: Router) {
 	router.get('/login', context => context.body = 'login');

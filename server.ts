@@ -4,9 +4,13 @@ import * as serve from 'koa-static';
 import * as cors from 'koa-cors';
 import { router } from './api';
 import { authenticate } from './api/login';
+import { connect } from './api/database';
 
 export const app = new Koa();
 const port = process.env.npm_package_config_port || 3000;
+
+connect().then(() => console.log('Connected to mongoose...'))
+		 .catch(error => console.error('Error connecting to mongoose:', error));
 
 app.use(errorHandler());
 app.use(cors());
