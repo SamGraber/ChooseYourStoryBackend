@@ -9,3 +9,6 @@ Author(s): User | User[]
 
 
 On login, app should make an api request to get the user's profile. API should query for an existing user in the DB, or create a new one if not present yet
+
+TODO:
+Add a notification mechanism so users can request friends. This should make it so only people you approve can view your stories, for privacy reasons.
