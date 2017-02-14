@@ -24,3 +24,7 @@ export function configureUserRoutes(router: Router) {
 function searchUsers(): Promise<IUser[]> {
 	return User.find({}).limit(50).then(x => x);
 }
+
+export function getUserById(id: string): Promise<IUser> {
+	return User.findOne({ oauthId: id }).then(x => x);
+}
