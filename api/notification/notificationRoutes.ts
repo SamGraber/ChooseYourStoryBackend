@@ -15,7 +15,7 @@ export function configureNotificationRoutes(router: Router) {
 				message: `${requester.name} wants to be friends`,
 				requesterId,
 			};
-			return Notification.create(friendRequest).then(result => context.body = result);
+			return Notification.create(friendRequest).then(result => context.body = mapToViewModel(result));
 		});
 		next();
 	});
@@ -27,8 +27,18 @@ export function configureNotificationRoutes(router: Router) {
 			throw new Error('No user specified');
 		}
 
-		context.body = await Notification.find({ userId }).then(x => x);
+		context.body = await Notification.find({ userId }).then(data => data.map(mapToViewModel));
 		next();
 	});
 	return router;
+}
+
+function mapToViewModel(notification: INotification): any {
+	return {
+		id: notification._id,
+		userId: notification.userId,
+		type: notification.type,
+		message: notification.message,
+		requesterId: (notification as any).requesterId,
+	};
 }
